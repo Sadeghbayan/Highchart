@@ -1,0 +1,46 @@
+{
+  "records": [
+    {
+      "Name" : "Alfreds Futterkiste",
+      "City" : "Berlin",
+      "Country" : "Germany",
+      "Value" : 10
+    },
+    {
+      "Name" : "Berglunds snabbköp",
+      "City" : "Luleå",
+      "Country" : "Sweden",
+      "Value" :30
+
+    },
+    {
+      "Name" : "Centro comercial Moctezuma",
+      "City" : "México D.F.",
+      "Country" : "Mexico",
+      "Value" :360
+
+    },
+    {
+      "Name" : "Ernst Handel",
+      "City" : "Graz",
+      "Country" : "Austria",
+      "Value" :560
+
+    },
+    {
+      "Name" : "FISSA Fabrica Inter. Salchichas S.A.",
+      "City" : "Madrid",
+      "Country" : "Spain",
+      "Value" :160
+
+    },
+    {
+      "Name" : "Galería del gastrónomo",
+      "City" : "Barcelona",
+      "Country" : "Spain",
+      "Value" :460
+
+    }
+
+  ]
+}

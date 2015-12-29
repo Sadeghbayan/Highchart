@@ -1,102 +1,58 @@
-var app = angular.module('app', []);
+var app = angular.module('app',["highcharts-ng"]);
 app.controller('MainCtrl', function ($scope, $element, $http) {
 
 
-    
 
 
-});
 
+    $http.get("js/data.json").then(function(response){
+        $scope.data = response.data.records;
+        var name = [];
+        for(var i=0; i < $scope.data.length; i++){
+            name.push($scope.data[i].Name);
+        }
 
-$(function () {
-    $('#container').highcharts({
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: 'مقایسه خوردن میوه'
-        },
-        xAxis: {
-            categories: ['Annanas', 'Graip Fruit', 'Rosebarry']
-        },
-        yAxis: {
-            title: {
-                text: 'Fruit eaten'
-            }
-        },
-        series: [{
-            name: 'Soheil',
-            data: [1, 80, 4]
-        }, {
-            name: 'Soroush',
-            data: [5, 7, 300]
-        }]
-    });
+        var value = [];
+        for(var i=0; i < $scope.data.length; i++){
+            value.push($scope.data[i].Value);
+            console.log(value);
+        }
 
-    $('#container-fluid').highcharts({
+        var axisTitle = [];
+        for(var i=0; i < $scope.data.length; i++){
+            axisTitle.push($scope.data[i].Country);
+            console.log(axisTitle);
+        }
 
-        chart:{
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title:{
-            text:'Pie Chart Testing'
-        },
-        tooltip:{
-          pointFormat:'{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'navy'
-                    }
+       
+
+        $scope.chartConfig = {
+            options: {
+                chart: {
+                    type: 'line'
                 }
-            }
-        },
-        xAxis:{
-            //title:{
-            //    text:'Testing xAxis title'
-            //},
-            categories:['Drupal','Angular','Bootstrap']
-        },
-        yAxis:{
-            text:'I do"nt know what to say'
-        },
-        series: [{
-            name: 'Brands',
-            colorByPoint: true,
-            data: [{
-                name: 'Microsoft Internet Explorer',
-                y: 56.33
-            }, {
-                name: 'Chrome',
-                y: 24.03,
-                sliced: true,
-                selected: true
-            }, {
-                name: 'Firefox',
-                y: 10.38
-            }, {
-                name: 'Safari',
-                y: 4.77
-            }, {
-                name: 'Opera',
-                y: 0.91
-            }, {
-                name: 'Proprietary or Undetectable',
-                y: 0.2
-            }]
-        }]
-
+            },
+            series: [{
+                data: value,
+                name:'Temp'
+            }],
+            xAxis: {
+                categories: axisTitle
+            },
+            yAxis: {
+                title:'مقدار'
+            },
+            title: {
+                text: 'Hello'
+            },
+            loading: false
+        }
 
 
     });
+
+
+
+
 
 });
